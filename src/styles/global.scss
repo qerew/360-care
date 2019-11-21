@@ -1,0 +1,15 @@
+$baseColor: #2D64FE;
+
+body {
+  margin: 20px;
+}
+
+div {
+  color: $baseColor;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
