@@ -30,7 +30,6 @@ class Code extends Component {
       }
       vals = Array(total_length).fill('');
     }
-    console.log(vals);
     this.state = {
       values: vals,
       sub_length,
@@ -41,7 +40,6 @@ class Code extends Component {
       this.iRefs.push(React.createRef());
     }
     this.id = +new Date();
-    console.log(sub_length);
   }
 
   onChange = (e) => {
@@ -144,7 +142,7 @@ class Code extends Component {
   render() {
     const { title, fields } = this.props;
     return (
-      <div className="code">
+      <div className="code-field">
         <span>{title}</span>
         {fields.map((field, index) => (
           <Fragment key={index}>

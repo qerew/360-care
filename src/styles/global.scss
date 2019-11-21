@@ -8,12 +8,15 @@ div {
   color: $baseColor;
 }
 
-input {
+input[type="text"] {
   border-color: $baseColor !important;
   outline: none;
-  font-size: 16px;
   padding: 3px;
   height: 30px;
+}
+
+.header {
+  font-size: 16px;
 }
 
 .flex-row {
@@ -21,9 +24,36 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  &.space-around {
+    justify-content: space-around;
+  }
 }
 
-.text-box, .code {
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 100px;
+  height: 80px;
+  background: blue;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.header {
+  .flex-row > div:first-child > span:first-child {
+    width: 100px;
+  }
+  .flex-row > div:last-child > span:first-child {
+    width: 70px;
+  }
+}
+
+.text-field, .code-field, .checkbox-field {
   flex: 1;
   margin-right: 20px; 
   display: flex;
@@ -34,19 +64,12 @@ input {
     font-size: 16px;
   }
 }
-.text-box {
-  span {
-    width: 100px;
-  }
-  input {
-    flex: 1;
-  }  
+.text-field > input, .checkbox-field > div {
+  flex: 1;
 }
-.code {
+
+.code-field {
   span {
-    &:not(.hypen) {
-      width: 70px;
-    }
     &.hypen {
       margin: 0 5px;
     }
@@ -70,12 +93,7 @@ input {
   }
 }
 
-.textbox {
+.input-text {
   flex: 1 100%;
   border: 1px solid;
-}
-
-.code-box {
-  display: contents;
-  
 }

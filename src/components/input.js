@@ -6,9 +6,9 @@ class Input extends Component {
   render() {
     const { title } = this.props;
     return (
-      <div className="text-box">
+      <div className="text-field">
         <span>{title}</span>
-        <input type="text" className="textbox" />
+        <input type="text" className="input-text" />
       </div>
     );
   }
