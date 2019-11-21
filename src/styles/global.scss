@@ -1,4 +1,4 @@
-$baseColor: #2D64FE;
+@import './variables.scss';
 
 body {
   margin: 20px;
@@ -8,8 +8,74 @@ div {
   color: $baseColor;
 }
 
+input {
+  border-color: $baseColor !important;
+  outline: none;
+  font-size: 16px;
+  padding: 3px;
+  height: 30px;
+}
+
 .flex-row {
+  margin: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.text-box, .code {
+  flex: 1;
+  margin-right: 20px; 
+  display: flex;
+  align-items: center;
+  span {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+  }
+}
+.text-box {
+  span {
+    width: 100px;
+  }
+  input {
+    flex: 1;
+  }  
+}
+.code {
+  span {
+    &:not(.hypen) {
+      width: 70px;
+    }
+    &.hypen {
+      margin: 0 5px;
+    }
+  }
+  .react-code-input {
+    input {
+      width: 30px;
+      height: 40px;
+      background-color: transparent;
+      border: 1px solid $baseColor;
+      border-right: none;
+      text-align: center;
+      box-sizing: border-box;
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(58, 151, 212, 0.28);
+      }
+      &:last-child {
+        border-right: 1px solid $baseColor;
+      }
+    }
+  }
+}
+
+.textbox {
+  flex: 1 100%;
+  border: 1px solid;
+}
+
+.code-box {
+  display: contents;
+  
 }
