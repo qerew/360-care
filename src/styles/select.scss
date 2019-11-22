@@ -4,7 +4,8 @@
 .checkbox {
   display: block;
   position: relative;
-  padding-left: 25px;
+  padding-left: 24px;
+  padding-right: 12px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -24,10 +25,10 @@ input[type="checkbox"], input[type="radio"]{
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
-  top: 0;
+  top: 2px;
   left: 0;
-  height: 15px;
-  width: 15px;
+  height: 12px;
+  width: 12px;
   border: 1px solid $baseColor;
 }
 
@@ -47,8 +48,8 @@ input[type="checkbox"], input[type="radio"]{
 .checkbox .checkmark:after {
   left: 4px;
   top: 1px;
-  width: 5px;
-  height: 9px;
+  width: 3px;
+  height: 7px;
   border: solid #006cff;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);

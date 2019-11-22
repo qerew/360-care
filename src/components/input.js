@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FlexContainer from './flex-container';
 import '../styles/global.scss';
 
 class Input extends Component {

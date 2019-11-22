@@ -9,25 +9,51 @@ div {
 }
 
 input[type="text"] {
-  border-color: $baseColor !important;
   outline: none;
   height: 35px;
   padding-left: 5px;
   box-sizing: border-box;
 }
 
+textarea {
+  width: 100%;
+  border-color: $baseColor;
+  resize: none;
+  outline: none;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0px;
+  td {
+    padding: 5px 0px;
+  }
+}
+
+hr {
+  border-top: 1px solid;
+}
+
 .header, .header input {
   font-size: 16px;
 }
 
+section, section input {
+  font-size: 12px;
+}
+
 .flex-row {
-  margin: 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
   &.space-around {
     justify-content: space-around;
+  }
+  .header & {
+    margin: 5px 0px;
+  }
+  section & {
+    margin: 3px 0px;
   }
 }
 
@@ -50,6 +76,23 @@ input[type="text"] {
 .title {
   font-size: 32px;
   margin-top: 20px;
+}
+
+.subtitle-1 {
+  font-size: 16px;
+  background-color: $yellowBackground;
+}
+
+.subtitle-2 {
+  margin: 3px 0px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: $blueBackground;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
 }
 
 .bold {
@@ -75,10 +118,12 @@ input[type="text"] {
   .flex-row > div:last-child > div > span:first-child {
     width: 70px;
   }
+  .text-field {
+    margin-right: 20px;
+  }
 }
 
 .text-field, .code-field, .checkbox-field {
-  margin-right: 20px; 
   display: flex;
   align-items: center;
   span {
@@ -90,13 +135,8 @@ input[type="text"] {
   flex: 1;
 }
 
-.checkbox-field {
-  height: 40px;
-}
-
 .input-text {
-  flex: 1 100%;
-  border: 1px solid;
+  border: 1px solid $baseColor;
 }
 
 #printme {
@@ -104,6 +144,6 @@ input[type="text"] {
 }
 @media print {
   #printme {
-      display: block;
+    display: block;
   }
 }
