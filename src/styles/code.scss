@@ -1,0 +1,32 @@
+@import './variables.scss';
+
+.code-field {
+  span {
+    &.hypen {
+      margin: 0 5px;
+    }
+  }
+  .react-code-input {
+    input {
+      width: 25px;
+      height: 40px;
+      background-color: transparent;
+      border: 1px solid $baseColor;
+      border-right: none;
+      text-align: center;
+      box-sizing: border-box;
+      &:focus {
+        outline: none;
+        // box-shadow: 0 0 0 3px rgba(58, 151, 212, 0.28);
+      }
+      &:last-child {
+        border-right: 1px solid $baseColor;
+      }
+    }
+    &.active > input {
+      color: orangered;
+      border-color: orangered !important;
+      box-shadow: 0 0 0 1px rgba(247, 112, 49, 0.28);
+    }
+  }
+}

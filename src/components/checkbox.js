@@ -1,38 +1,56 @@
 import React, { Component, Fragment } from 'react';
-import FlexBox from './flexbox';
+import FlexContainer from './flex-container';
 import '../styles/checkbox.scss';
 
 class CheckBox extends Component {
-  state = {
-    value: this.props.value || false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      values: {
+        'Male': true,
+      },
+    }
   }
 
   onChange = (e) => {
-    this.setState({
-      value: !this.state.value,
-    })
-    // this.props.onChange(!this.state.value);
-  }
+    let { values } = this.state;
+    const key = e.target.value;
+    const { type } = this.props;
+
+    if (type === 'radio') {
+      if (!values[key]) {
+        values = {};
+        values[key] = true;
+      }
+    } else {
+      values[key] = !values[key];
+    }
+    this.setState({ values });
+  };
 
   render() {
     const { type, name, title, options } = this.props;
+    const { values } = this.state;
+
     return (
       <div className="checkbox-field">
-        <span>{title}</span>
-        <FlexBox className="space-around">
+        <span className="bold">{title}</span>
+        <FlexContainer className="space-around">
           {options.map((option, key) => (
-            <label className="checkbox">
+            <label key={key} className="checkbox">
               {` ${option}`}
               <input
+                key={Math.random()}
                 type={type || 'checkbox'}
                 value={option}
                 name={name || ''}
-                onClick={this.onChange}
+                checked={values[option] ? 'checked' : false}
+                onChange={this.onChange}
               />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
           ))}
-        </FlexBox>
+        </FlexContainer>
       </div>
     );
   }

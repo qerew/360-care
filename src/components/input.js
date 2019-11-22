@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FlexBox from './flexbox';
+import FlexContainer from './flex-container';
 import '../styles/global.scss';
 
 class Input extends Component {
@@ -7,7 +7,7 @@ class Input extends Component {
     const { title } = this.props;
     return (
       <div className="text-field">
-        <span>{title}</span>
+        <span className="bold">{title}</span>
         <input type="text" className="input-text" />
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import ReactCodeInput from 'react-verification-code-input';
 import '../styles/global.scss';
+import '../styles/code.scss';
 
 const KEY_CODE = {
   backspace: 8,
@@ -15,8 +15,8 @@ class Code extends Component {
     super(props);
     const { fields, values } = props;
     let vals;
-    let total_length = 0; // return the total length of the code
-    let sub_length = []; // return the start index of block e.g. 12-34-5678
+    let totalLength = 0; // return the total length of the code
+    let subLength = []; // return the start index of block e.g. 12-34-5678
     if (values && values.length) {
       vals = [];
       for (let i = 0; i < fields; i++) {
@@ -25,18 +25,20 @@ class Code extends Component {
     } else {
       vals = [];
       for (let i = 0; i < fields.length; i++) {
-        sub_length[i] = total_length;
-        total_length += fields[i];
+        subLength[i] = totalLength;
+        totalLength += fields[i];
       }
-      vals = Array(total_length).fill('');
+      subLength.push(totalLength);
+      vals = Array(totalLength).fill('');
     }
     this.state = {
       values: vals,
-      sub_length,
-      total_length,
+      subLength,
+      totalLength,
+      currentIndex: -1,
     };
     this.iRefs = [];
-    for (let i = 0; i < total_length; i++) {
+    for (let i = 0; i < totalLength; i++) {
       this.iRefs.push(React.createRef());
     }
     this.id = +new Date();
@@ -47,20 +49,20 @@ class Code extends Component {
     if (e.target.value === '' || (this.props.type === 'number' && !e.target.validity.valid)) {
       return;
     }
-    let { values, total_length } = this.state;
+    let { values, totalLength } = this.state;
     let next;
     const value = e.target.value;
     values = Object.assign([], values);
     if (value.length > 1) {
       let nextIndex = value.length + index - 1;
-      if (nextIndex >= total_length) {
-        nextIndex = total_length - 1;
+      if (nextIndex >= totalLength) {
+        nextIndex = totalLength - 1;
       }
       next = this.iRefs[nextIndex];
       const split = value.split('');
       split.forEach((item, i) => {
         const cursor = index + i;
-        if (cursor < total_length) {
+        if (cursor < totalLength) {
           values[cursor] = item;
         }
       });
@@ -93,7 +95,6 @@ class Code extends Component {
         } else if (prev) {
           vals[prevIndex] = '';
           prev.current.focus();
-          this.setState({ values: vals });
         }
         break;
       case KEY_CODE.left:
@@ -117,12 +118,21 @@ class Code extends Component {
     }
   };
 
+  onFocus = (e) => {
+    const index = parseInt(e.target.dataset.id);
+    this.setState({ currentIndex: index });
+  }
+
+  onBlur = (e) => {
+    this.setState({ currentIndex: -1 });
+  }
+
   renderCodeBlock = (index, field) => {
     const inputs = [];
-    const { values, sub_length } = this.state;
+    const { values, subLength } = this.state;
     const { type } = this.props;
     for (let i = 0; i < field; i++) {
-      const key = sub_length[index] + i;
+      const key = subLength[index] + i;
       inputs.push(
         <input
           key={key}
@@ -131,6 +141,8 @@ class Code extends Component {
           data-id={key}
           ref={this.iRefs[key]}
           value={values[key]}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
         />,
@@ -141,12 +153,21 @@ class Code extends Component {
 
   render() {
     const { title, fields } = this.props;
+    const { subLength, currentIndex } = this.state;
     return (
       <div className="code-field">
-        <span>{title}</span>
+        <span className="bold">{title}</span>
         {fields.map((field, index) => (
           <Fragment key={index}>
-            <div className="react-code-input">{this.renderCodeBlock(index, field)}</div>
+            <div
+              className={`react-code-input ${
+                currentIndex >= subLength[index] && currentIndex < subLength[index + 1]
+                  ? 'active'
+                  : ''
+              }`}
+            >
+              {this.renderCodeBlock(index, field)}
+            </div>
             {index < fields.length - 1 && <span className="hypen">-</span>}
           </Fragment>
         ))}

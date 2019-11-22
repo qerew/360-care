@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import '../styles/global.scss';
 
 class FlexBox extends Component {
   render() {
+    const styles = {
+      flex: this.props.flex || 1,
+    }
     return (
-      <div className={`flex-row ${this.props.className || ''}`}>
+      <div style={styles}>
         {this.props.children}
       </div>
     );

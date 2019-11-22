@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 body {
-  margin: 20px;
+  margin: 10px;
 }
 
 div {
@@ -11,11 +11,12 @@ div {
 input[type="text"] {
   border-color: $baseColor !important;
   outline: none;
-  padding: 3px;
-  height: 30px;
+  height: 35px;
+  padding-left: 5px;
+  box-sizing: border-box;
 }
 
-.header {
+.header, .header input {
   font-size: 16px;
 }
 
@@ -23,6 +24,7 @@ input[type="text"] {
   margin: 5px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   &.space-around {
     justify-content: space-around;
@@ -30,37 +32,57 @@ input[type="text"] {
 }
 
 .app {
-  max-width: 1080px;
+  max-width: 960px;
   margin: 0 auto;
+  position: relative;
 }
 
 .logo {
-  width: 100px;
-  height: 80px;
-  background: blue;
+  width: 200px;
+  position: relative;
+  span {
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+  }
 }
 
 .title {
   font-size: 32px;
+  margin-top: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.btn-print {
+  position: absolute;
+  right: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: $baseColor;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
 }
 
 .header {
-  .flex-row > div:first-child > span:first-child {
+  .flex-row > div:first-child > div > span:first-child {
     width: 100px;
   }
-  .flex-row > div:last-child > span:first-child {
+  .flex-row > div:last-child > div > span:first-child {
     width: 70px;
   }
 }
 
 .text-field, .code-field, .checkbox-field {
-  flex: 1;
   margin-right: 20px; 
   display: flex;
   align-items: center;
   span {
     display: inline-block;
-    font-weight: bold;
     font-size: 16px;
   }
 }
@@ -68,32 +90,20 @@ input[type="text"] {
   flex: 1;
 }
 
-.code-field {
-  span {
-    &.hypen {
-      margin: 0 5px;
-    }
-  }
-  .react-code-input {
-    input {
-      width: 30px;
-      height: 40px;
-      background-color: transparent;
-      border: 1px solid $baseColor;
-      border-right: none;
-      text-align: center;
-      box-sizing: border-box;
-      &:focus {
-        box-shadow: 0 0 0 3px rgba(58, 151, 212, 0.28);
-      }
-      &:last-child {
-        border-right: 1px solid $baseColor;
-      }
-    }
-  }
+.checkbox-field {
+  height: 40px;
 }
 
 .input-text {
   flex: 1 100%;
   border: 1px solid;
+}
+
+#printme {
+  display: none;
+}
+@media print {
+  #printme {
+      display: block;
+  }
 }
