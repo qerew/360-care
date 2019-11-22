@@ -4,7 +4,7 @@ import Checkbox from '../components/checkbox';
 class DiabeticRiskCategory extends Component {
   render() {
     return (
-      <div className="section">
+      <div className="section mips-section">
         <div className="subtitle-1">Diabetic Risk Category *Required Annually for MIPS*</div>
         <div>
           <Checkbox

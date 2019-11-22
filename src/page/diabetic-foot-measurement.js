@@ -6,7 +6,7 @@ import Checkbox from '../components/checkbox';
 class DiabeticFootMeasurement extends Component {
   render() {
     return (
-      <div className="section">
+      <div className="section mips-section">
         <div className="subtitle-1">
           Diabetic Foot Measurement / Footwear Evaluation and Counseling *Required Annually for
           MIPS*

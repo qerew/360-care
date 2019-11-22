@@ -208,8 +208,12 @@ section, section input {
   height: 50px;
 }
 
+.mips-section > div {
+  margin: 5px 0;
+}
+
 footer {
-  margin: 20px 0;
+  margin: 20px 0 10px;
 }
 
 @media print {
