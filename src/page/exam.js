@@ -6,6 +6,7 @@ import FootDeformities from './foot-deformities';
 import Strength from './strength';
 import Skin from './skin';
 import ToeDeformities from './toe-deformities';
+import RangeOfMotion from './range-of-motion';
 import '../styles/exam.scss';
 
 class Exam extends Component {
@@ -23,6 +24,7 @@ class Exam extends Component {
             <div>
               <Skin />
               <ToeDeformities />
+              <RangeOfMotion />
             </div>
           </FlexBox>
         </FlexContainer>
