@@ -11,6 +11,7 @@ class Checkbox extends Component {
           type={type || 'checkbox'}
           value={value}
           name={name}
+          className={checked}
           checked={checked}
           onChange={this.props.onChange}
         />

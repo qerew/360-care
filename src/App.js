@@ -1,16 +1,14 @@
 import React from 'react';
 import Main from './page';
-import ReactToPrint from 'react-to-print';
 
 function App() {
-  let componentRef;
+  function printDoc() {
+    window.print();
+  }
   return (
     <div className="app">
-      <Main ref={(el) => (componentRef = el)} />
-      <ReactToPrint
-        trigger={() => <button className="btn-print">Print</button>}
-        content={() => componentRef}
-      />
+      <Main />
+      <button id="btn-print" onClick={printDoc}>Print</button>
     </div>
   );
 }
