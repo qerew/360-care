@@ -2,15 +2,19 @@
 
 /* The container */
 .checkbox {
-  display: block;
   position: relative;
-  padding-left: 24px;
-  padding-right: 12px;
+  padding-left: 20px;
+  padding-right: 10px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  &.no-padding {
+    padding: 0px;
+    padding-right: 15px;
+  }
 }
 
 /* Hide the browser's default checkbox */

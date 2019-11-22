@@ -4,6 +4,7 @@ import FlexBox from '../components/flex-box';
 import Select from '../components/select';
 import History from './history';
 import HPI from './hpi';
+import '../styles/histories.scss';
 
 class Histories extends Component {
   render() {
@@ -17,7 +18,7 @@ class Histories extends Component {
             <div className="subtitle-1 bold">REVIEW OF SYSTEMS</div>
           </FlexBox>
         </FlexContainer>
-        <FlexContainer>
+        <FlexContainer align="flex-start">
           <FlexBox flex={3}>
             <History
               title="Medications Reviewed: "

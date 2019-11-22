@@ -1,0 +1,26 @@
+#class-c, #advanced-trophic-changes, #nail-changes {
+  table {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  td, th {
+    text-align: center;
+    &.thead {
+      text-align: left;
+    }
+  }
+}
+
+#advanced-trophic-changes, #nail-changes {
+  margin: 4px;
+  tr {
+    height: 20px;
+  }
+  .subheader {
+    font-weight: bold;
+  }
+}
+
+#nail-changes {
+  margin-top: 10px;
+}

@@ -8,7 +8,7 @@ class History extends Component {
   render() {
     const { title, type, options, justify, other } = this.props;
     return (
-      <FlexContainer align="center">
+      <FlexContainer>
         <div style={{width: '165px'}}>
           <div className="subtitle-2">{title}</div>
         </div>

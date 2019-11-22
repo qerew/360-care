@@ -6,13 +6,23 @@ body {
 
 div {
   color: $baseColor;
+  font-size: 12px;
 }
 
 input[type="text"] {
   outline: none;
-  height: 35px;
+  padding: 3px;
   padding-left: 5px;
   box-sizing: border-box;
+  width: 100%;
+  .header & {
+    height: 35px;
+  }
+}
+
+input {
+  border: 1px solid $baseColor;
+  outline: none;
 }
 
 textarea {
@@ -23,11 +33,7 @@ textarea {
 }
 
 table {
-  width: 100%;
   border-spacing: 0px;
-  td {
-    padding: 5px 0px;
-  }
 }
 
 hr {
@@ -77,17 +83,28 @@ section, section input {
   font-size: 32px;
   margin-top: 20px;
 }
-
 .subtitle-1 {
   font-size: 16px;
   background-color: $yellowBackground;
+  font-weight: bold;
 }
-
 .subtitle-2 {
   margin: 3px 0px;
   font-size: 14px;
   font-weight: bold;
   background-color: $blueBackground;
+}
+.subtitle-3 {
+  margin: 3px 0px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.subtitle-4 {
+  font-size: 14px;
+}
+
+.info {
+  font-size: 10px;
 }
 
 .break {
@@ -134,9 +151,8 @@ section, section input {
 .text-field > input, .checkbox-field > div {
   flex: 1;
 }
-
-.input-text {
-  border: 1px solid $baseColor;
+.class-field {
+  margin-bottom: 10px;
 }
 
 #printme {
@@ -145,5 +161,18 @@ section, section input {
 @media print {
   #printme {
     display: block;
+  }
+}
+
+.table-full-width {
+  width: 100%;
+}
+
+.table-format-2 {
+  td, th {
+    text-align: center;
+    &.thead {
+      text-align: left;
+    }
   }
 }

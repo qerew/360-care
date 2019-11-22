@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import FlexContainer from './flex-container';
 import FlexBox from './flex-box';
 import Checkbox from './checkbox';
-import '../styles/select.scss';
 
 class Select extends Component {
   constructor(props) {

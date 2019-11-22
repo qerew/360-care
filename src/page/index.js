@@ -1,29 +1,33 @@
 import React, { Component } from 'react';
 import FlexContainer from '../components/flex-container';
-import FlexBox from '../components/flex-box';
-import Input from '../components/input';
-import Code from '../components/code';
-import Select from '../components/select';
 import Logo from './logo';
 import Title from './title';
 import '../styles/global.scss';
 import Header from './header';
 import Histories from './histories';
+import ClassFindingsReview from './class-findings-review';
+import Exam from './exam';
 
 class Main extends Component {
   render() {
     return (
       <div>
-        <div>
-          <FlexContainer>
-            <Logo />
-            <Title />
-          </FlexContainer>
+        <div id="first-page">
+          <div>
+            <FlexContainer>
+              <Logo />
+              <Title />
+            </FlexContainer>
+          </div>
+          <Header />
+          <section>
+            <Histories />
+            <ClassFindingsReview />
+          </section>
         </div>
-        <Header />
-        <section>
-          <Histories />
-        </section>
+        <div id="second-page">
+          <Exam />
+        </div>
       </div>
     );
   }
