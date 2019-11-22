@@ -57,14 +57,12 @@ class Table extends Component {
       title,
       details,
       width,
-      type,
       fields,
       options,
       description,
       moreDetails,
       otherField,
     } = this.props;
-    if (!width) width = '100%';
 
     return (
       <div>
@@ -72,7 +70,7 @@ class Table extends Component {
           {title}
           {details && <small>details</small>}
         </div>
-        <table className="table-format-2" width={width}>
+        <table className="table-format-2" width={width || '100%'}>
           <tbody>
             <tr>
               <td className="thead" width="60%">

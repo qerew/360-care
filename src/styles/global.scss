@@ -176,3 +176,43 @@ section, section input {
     }
   }
 }
+
+.section {
+  margin-bottom: 10px;
+}
+
+.follow-up-field {
+  padding: 5px;
+  border: 1px solid $baseColor;
+  background-image:
+    radial-gradient(
+      #ffffff,
+      $baseColor 250%
+    );
+  & > div {
+    height: 25px;
+  }
+}
+
+#additional-details {
+  display: flex;
+  flex-direction: column;
+  textarea {
+    flex-grow: 1;
+  }
+}
+
+#codes {
+  border: 1px solid $baseColor;
+  margin: 2px 0;
+  padding: 0 5px;
+  height: 100%;
+}
+
+#signature {
+  height: 50px;
+}
+
+footer {
+  margin: 20px 0;
+}

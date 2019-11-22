@@ -10,6 +10,7 @@ class FlexContainer extends Component {
     else style.alignItems = 'center';
     return (
       <div
+        id={this.props.id || ''}
         className={`flex-row ${className || ''}`}
         style={style}
       >

@@ -12,7 +12,7 @@ import '../styles/exam.scss';
 class Exam extends Component {
   render() {
     return (
-      <div>
+      <div className="section">
         <div className="subtitle-1">Exam</div>
         <FlexContainer align="flex-start">
           <FlexBox>

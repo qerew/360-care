@@ -6,7 +6,7 @@ class FlexBox extends Component {
       flex: this.props.flex || 1,
     }
     return (
-      <div style={styles}>
+      <div style={styles} id={this.props.id || ''}>
         {this.props.children}
       </div>
     );
